@@ -1,0 +1,17 @@
+<!-- templates/czat/index.html -->
+<html>
+    <head></head>
+    <body>
+        <h1>Witaj w aplikacji Czat!</h1>
+
+        {% if message %}
+            <ul>
+                {% for komunikat in message %}
+                    <li>{{ komunikat|capfirst }}</li>            
+                {%  endfor %}
+            </ul>
+        {%  endif %}
+        <button type='submit' >Zaloguj</button>
+        <button type='submit' >Wyloguj</button>
+    </body>
+</html>
