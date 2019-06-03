@@ -11,7 +11,12 @@
                 {%  endfor %}
             </ul>
         {%  endif %}
-        <button type='submit' >Zaloguj</button>
-        <button type='submit' >Wyloguj</button>
+
+        {% if user.is_authenticated %}
+            <button type='submit' >Wyloguj</button>    
+        {% else %}
+            <button type='submit' >Zaloguj</button>
+        {% endif %}
+
     </body>
 </html>
