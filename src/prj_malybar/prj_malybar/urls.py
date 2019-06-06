@@ -20,5 +20,6 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^', include('pizza.urls')),
     url(r'^pizza/', include('pizza.urls')),
+    # url(r'^konta/', include('registration.backends.simple.urls')),
     url(r'^admin/', admin.site.urls),
 ]
