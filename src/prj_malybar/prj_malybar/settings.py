@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # Moje aplikacje
     'pizza',
+    #'django_registration',
     'registration',
 ]
 
