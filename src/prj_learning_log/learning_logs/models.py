@@ -16,7 +16,7 @@ class Entry(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = 'entries'
+        verbose_name_plural = 'entries' # Nazwa dla liczby mnogiej widocznej w panelu "admin".
 
     def __str__(self):
         """Zwraca reprezentację modelu w postaci ciągu tekstowego."""

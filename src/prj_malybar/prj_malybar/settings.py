@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for prj_malybar project.
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
 
     # Moje aplikacje
     'pizza',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# django-registration
+REGISTRATION_AUTO_LOGIN = True # automatyczne logowanie po rejestracji
+LOGIN_REDIRECT_URL = '/pizza/' # strona docelowa po zalogowaniu
+LOGIN_URL = '/konta/login/' # strona logowania
