@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-# czat_prj/czat/admin.py
+# prj_czat\czat\admin.py
 
 from django.contrib import admin
+from .models import Wiadomosc # importuję mój model
 
-from czat import models # Importujemy nasz model
+admin.site.register(Wiadomosc) # rejestruję mój model
 
-# Rejestracja modelu Wiadomosc w panelu administracyjnym
-admin.site.register(models.Wiadomosc)

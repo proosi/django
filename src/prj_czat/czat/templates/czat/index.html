@@ -1,22 +1,28 @@
-<!-- templates/czat/index.html -->
+<!-- prj_czat/czat/templates/czat/index.html -->
 <html>
-    <head></head>
-    <body>
-        <h1>Witaj w aplikacji Czat!</h1>
+  <head></head>
+  <body>
+    <h1>Witaj w aplikacji Czat!</h1>
 
-        {% if message %}
-            <ul>
-                {% for komunikat in message %}
-                    <li>{{ komunikat|capfirst }}</li>            
-                {%  endfor %}
-            </ul>
-        {%  endif %}
+    {% if messages %}
+      <ul>
+        {% for komunikat in messages %}
+          <li>{{ komunikat|capfirst }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
 
-        {% if user.is_authenticated %}
-            <button type='submit' >Wyloguj</button>    
-        {% else %}
-            <button type='submit' >Zaloguj</button>
-        {% endif %}
+    {% if user.is_authenticated %}
+      <p>Jesteś zalogowany jako użytkownik: {{ user.username }}</p>
+      <ul>
+        <li><a href="{% url 'czat:wiadomosci' %}">Wiadomości</a></li>
+        <li><a href="{% url 'czat:wyloguj' %}">Wylogowanie</a></li>
+      </ul>
+    {% else %}
+      <ul>
+        <li><a href="{% url 'czat:loguj' %}">Logowanie</a></li>
+      </ul>
+    {% endif%}
 
-    </body>
+  </body>
 </html>
