@@ -7,6 +7,9 @@ from django.contrib.auth import login, logout
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib import messages
+from .models import Wiadomosc
+from django.utils import timezone
+
 
 
 def index(request):
@@ -21,7 +24,7 @@ def loguj(request):
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            messages.success(request, 'Zostałeś zalogowany!')
+            messages.success(request, "Zostałeś zalogowany!")
             return redirect(reverse('czat:index'))
     
     kontekst = {'form': AuthenticationForm()}
@@ -32,3 +35,21 @@ def wyloguj(request):
     logout(request)
     messages.info(request, "Zostałeś wylogowany!")
     return redirect(reverse('czat:index'))
+
+def wiadomosci(request):
+    """Dodawanie i wyświetlanie wiadomości"""
+    if request.method == 'POST':
+        tekst = request.POST.get('tekst', '')
+        if not 0 < len(tekst) <= 250:
+            messages.error(request, "Wiadomość nie może być pusta, może mieć maks. 250 znaków")
+        else:
+            wiadomosc = Wiadomosc(
+                tekst=tekst,
+                data_pub=timezone.now(),
+                autor=request.user)
+            wiadomosc.save()
+            return redirect(reverse('czat:wiadomosci'))
+    
+    wiadomosci = Wiadomosc.objects.all()
+    kontekst = {'wiadomosci': wiadomosci}
+    return render(request, 'czat/wiadomosci.html', kontekst)
