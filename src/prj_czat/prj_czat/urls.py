@@ -22,5 +22,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^', include('czat.urls', namespace='czat')),
     url(r'^czat/', include('czat.urls', namespace='czat')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 ]

@@ -12,9 +12,10 @@
       </form>
     {% else %}
       <p>Jesteś już zalogowany jako "{{ user.username }}"</p>
-      <ul>
-        <li><a href="{% url 'czat:index' %}">Strona główna</a></li>
-      </ul>
+
     {% endif %}
+    <ul>
+      <li><a href="{% url 'czat:index' %}">Strona główna</a></li>
+    </ul>
   </body>
 </html>

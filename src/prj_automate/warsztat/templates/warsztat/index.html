@@ -1,2 +1,13 @@
-<h1>Aplikacja Warsztat</h1>
-<p>{{ komunikat }}</p>
+{% extends 'warsztat/base.html' %}
+
+{% block content %}
+  <h2>Aplikacja Warsztat</h2>
+
+  {% for car in cars %}
+    <ul>
+      <ol>{{ car.id }}. <a href="/warsztat/{{ car.id }}/">{{ car }}</a></ol>
+      <br>
+      <hr>
+    </ul>
+  {% endfor %}
+{% endblock %}

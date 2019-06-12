@@ -8,7 +8,7 @@ class Wiadomosc(models.Model):
     """Klasa reprezentująca wiadomość w systemie."""
     tekst = models.CharField(max_length=250)
     data_pub = models.DateTimeField()
-    autor = models.ForeignKey(User)
+    autor = models.ForeignKey(User, on_delete='CASCADE')
 
     class Meta: # ustawienia dodatkowe
         verbose_name = u'wiadomość' # nazwa obiektu w języku polskim
