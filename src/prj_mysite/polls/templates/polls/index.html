@@ -3,7 +3,7 @@
 {% if latest_question_list %}
   <ul>
     {% for question in latest_question_list %}
-      <ol>{{ question.id }}. <a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></ol>  
+      <ol>{{ question.id }}. <a href="{% url 'polls:detale' question.id %}">{{ question.question_text }}</a></ol>  
     {% endfor %}
   </ul>
 {% else %}
